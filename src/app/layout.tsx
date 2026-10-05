@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import SkipLink from "@/components/a11y/SkipLink";
+import Announcer from "@/components/a11y/Announcer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -22,12 +24,8 @@ export default function RootLayout({
   return (
     <html lang="id" className={`${inter.variable} h-full`}>
       <body className="min-h-full flex flex-col bg-white text-gray-900 antialiased">
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-700 focus:text-white focus:rounded focus:outline-none"
-        >
-          Lewati ke konten utama
-        </a>
+        <SkipLink />
+        <Announcer />
         {children}
       </body>
     </html>
